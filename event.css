@@ -11,17 +11,17 @@
     position: relative;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     width: auto;
-    top: 6rem;
-    bottom: 0rem;
+    top: 0rem;
+    bottom: 5rem;
 }
 
 .upcoming-event-section::after {
-    content: "Step into nature's embrace with Hikemandu";
+    content: "";
     position: absolute;
-    top: 0.1rem;
+    top: 0rem;
     left: 0;
     right: 0;
-    bottom: 6rem;
+    bottom: 0rem;
     background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
     border-radius: 0px;
     z-index: 0;
@@ -80,10 +80,11 @@
 }
 
 .event-info {
-    font-size: 1.5rem; /* Responsive font size */
-    font-weight: bold;
+    font-size: 1.7rem; /* Responsive font size */
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-transform: inherit;
-    background: linear-gradient(45deg, #ff5733, #ffbd33, #33ff57);
+    background: linear-gradient(45deg, #ff2f00, #ffae00, #00ff2f);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -101,13 +102,15 @@
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     width: fit-content;
     height: 4rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .register-button:hover {
-    background-color: #ff6600;
+    background-color: #088345 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
 
 .submit-button {
@@ -399,7 +402,8 @@ footer .social-icons a:nth-child(3) i:hover {
         border-radius: 0px; /* Optional border-radius for more rounded corners */
         background: linear-gradient(to right, rgba(255, 200, 0, 0.7), rgba(0, 150, 255, 0.7)); /* Light gradient */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        height: auto;
+        height: auto; /* Allow height to adjust based on content */
+        max-height: fit-content;
         resize: vertical;
         display: flex;
         flex-direction: column;
@@ -446,8 +450,8 @@ footer .social-icons a:nth-child(3) i:hover {
         border-radius: 5px;
         border: 1px solid #ccc;
         font-size: 1em; /* Responsive font size */
-        height: 15px;  /* Adjust this value to set a specific height */
-    resize: vertical;  /* Allow users to resize vertically if they wish */
+        height: 1vh;  /* Adjust this value to set a specific height */
+        resize: vertical;  /* Allow users to resize vertically if they wish */
     }
 
     
@@ -524,7 +528,7 @@ input[type="checkbox"] {
 }
 /* General Header Styles */
 header {
-    position: fixed;           /* Fixed position to stay at the top */
+    position:fixed;           /* Fixed position to stay at the top */
     top: 0;                    /* Align to the top */
     left: 0;                   /* Align to the left */
     right: 0;                  /* Align to the right */
@@ -595,8 +599,8 @@ header .navigation ul li a:hover {
 .fullscreen-img {
     display: none;
     position: absolute;
-    top: 0rem;
-    left: 0rem;
+    top: -5rem;
+    left: -10rem;
     right: 0;
     width: 100%;
     height: 100%;
@@ -649,4 +653,129 @@ header .navigation ul li a:hover {
         right: 5vw;
         padding: 1.2vw 1.8vw;
     }
+}
+
+.map-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .map-toggle-container p {
+    margin: 0;
+    line-height: 1.4;
+    display: inline;
+  }
+  
+  .map-toggle-container a {
+    margin-left: 0.3rem;
+    color: #4b0082;
+    text-decoration: underline;
+  }
+  
+  .toggle-map-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    background-color: #aa88ef;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+  }
+  
+  .toggle-map-btn:hover {
+    background-color: #139686;
+  }
+
+  .new-year-banner {
+    margin: 0 auto;
+    padding: 2em ;
+    width: 100%;
+    max-width: 550px;
+    background: #1c1f2b;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    padding: 0.5rem 0.6rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+    height: 100%;
+  }
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+  .new-year-banner::after, .new-year-banner::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095,white, #ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 5px;
+    border-radius: 10px;
+    animation: 4s spin linear infinite;
+  }
+  .new-year-banner::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+  }
+  @keyframes spin{
+    from{
+      --angle: 0deg;
+    }
+    to{
+      --angle: 360deg;
+    }
+  }
+  .new-year-banner h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+  }
+  .new-year-banner .year {
+    color: #11e0d6;
+    font-size: 2.6rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px #000;
+  }
+  
+  .new-year-title {
+    font-size: 3.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    background: linear-gradient(90deg,blue, #ff7300,white, #ffe600, #ff0099, #00ffe7);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 5s linear infinite;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    padding: 1rem;
+    border-radius: 20px;
+    position: relative;
+    -webkit-text-stroke: 0.5px #d3c3c3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-clip: text;
+    
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
