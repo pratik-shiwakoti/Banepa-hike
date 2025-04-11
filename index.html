@@ -34,18 +34,68 @@
 
 <section id="event" class="upcoming-event-section">
     <div class="event-content">
-        <p class="event-description">
-            Join us for an unforgettable adventure! Our next event is filled with exciting activities, great company, and stunning views. Don't miss out!
-        </p>
+        <p class="fun">"Step into nature's embrace with Hikemandu"</p><br>
+        <p class="event-description">Join us for an unforgettable adventure! Our next event is filled with exciting activities, great company, and stunning views. Don't miss out!</p>
         <p class="fun">Limited People, Unlimited Fun</p>
         <h2 class="event-title">Upcoming Event</h2>
+        <div class="new-year-banner">
+            <h1>🎆 <span class="year">New Year 2082 Special!!</span>  🎊</h1>
+          </div>
         <p id="countdown" class="countdown-text"></p>
-        <p class="event-info"> *Banepa - Chandeshwori temple - Nange dada - Sanga/Nala Hike*</p>
+        <p class="event-info"> *Banepa - Chandeshwori Temple- Nange Dadha- Sanga/Nala Hike*</p>
+        <h1 class="new-year-title">Let's Explore 2082 With Hikemandu</h1>
         <button class="event-button" onclick="openPopup('learnMorePopup')">Learn More</button>
         <button class="register-button" onclick="openPopup('registerPopup')"id="registerBtn">Register Here</button>
-        
     </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+    let confettiInterval = null;
+
+    const defaults = {
+        origin: { y: 0 },
+        angle: 100,
+        spread: 360,
+        startVelocity: 20,
+        gravity: 0.6,
+        ticks: 200,
+        zIndex: 999,
+    };
+
+    function launchConfetti() {
+        confetti({
+            ...defaults,
+            particleCount: 5 + Math.floor(Math.random() * 10),
+            origin: {
+                x: Math.random(),
+                y: Math.random() * 0.2,
+            },
+            colors: ['#bb0000', '#ffffff', '#00bb00', '#0000bb', '#ffbb00']
+        });
+    }
+
+    function startInfiniteConfetti() {
+        if (!confettiInterval) {
+            confettiInterval = setInterval(() => {
+                const feedback = document.getElementById("feedback-section");
+                if (!feedback) return;
+
+                const feedbackTop = feedback.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                // Stop confetti only when feedback section is in view
+                if (feedbackTop > windowHeight) {
+                    launchConfetti();
+                }
+            }, 200);
+        }
+    }
+
+    window.addEventListener("load", () => {
+        startInfiniteConfetti();
+    });
+</script>
 
 
 <!-- Learn More Popup -->
@@ -58,14 +108,31 @@
 <ul style="color: black; font-size: 1.07rem;">
         <li><strong>Route:</strong> Banepa - Chandeshwori temple - Raut Gaun - Nange dada - Sanga/Nala Hike</li>
          <li><strong>Distance:</strong> 12-14 km (Refrence: Google Maps)</li>
-        <li><strong>Date:</strong> 19 Chaitra 2081</li>
+        <li><strong>Date:</strong> 1 Baishak, 2082</li>
         <li><strong>Duration:</strong> 5-6 hours (Approx)</li>
-        <li><strong>Difficulty:</strong> Easy-Moderate</li>
+        <li><strong>Difficulty:</strong> Easy-Moderate (Best for Beginners)</li>
         <li><strong>Altitude:</strong> 1400m-1900m (From sea Level)</li>
-        <li><strong>Places of Attraction:</strong> Falcha, Chandeshwori thuosand steps, Gorakkali Mandir, etc.</li>
+        <li><strong>Places of Attraction:</strong> Falcha, Chandeshwori thuosand steps, Gorakkali Mandir and more.</li>
         <li><strong>Meeting Time:</strong> 10:00 AM (We hope everyone will be on time, we won't wait if you are late)</li>
-        <li><strong>Meeting Location: </strong><a href= "https://g.co/kgs/JqwBPAa" target="blank" >
-         KU Bus Stop, Banepa, Kavre</a></li>
+         
+       <!-- Meeting Location with Toggle Button -->
+       <li><div class="map-toggle-container">
+          <p><strong>Meeting Location:</strong><a href="https://g.co/kgs/JqwBPAa" target="_blank">KU Bus Stop, Dhulikhel</a></p>
+          <button onclick="toggleMap()" class="toggle-map-btn">Show/Hide Map</button>
+        </div></li>
+    <!-- Embedded Google Map Preview -->
+    <div id="mapSection" style="display: none; margin-top: 10px;">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.9829413004672!2d85.53837787529766!3d27.6250449762298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb08e7537f7627%3A0x903ef6c4424afed8!2sKU%20Bus%20stand!5e0!3m2!1sen!2snp!4v1744385746899!5m2!1sen!2snp" 
+        width="100%" 
+        height="350" 
+        style="border:0; border-radius:10px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
         <li><strong>Transportation:</strong> Public Bus (Up to KU Bus Stop)</li>
         <li><strong>Weather:</strong> Sunny with a chance of rain</li>
         <li><strong>Cost:</strong> NPR 200-500 per person</li>
@@ -116,7 +183,7 @@
                 <input type="checkbox" id="terms" required>
                 <label for="terms" style="display: inline-block; margin-left: 5px;">I agree to the <a href="termsandconditions.html" target="_blank">Terms and Conditions</a></label>
             </div>
-            <p> *Contact us if you are Joining with us <br> Contact Number: 9813092717 </p>
+            <p> *Contact us if you are Joining our Adventure <br> Contact Number: 9813092717 </p>
             <div class="button-group">
                 <button type="button" class="clear-button" onclick="clearForm()">Clear All</button>
                 <button type="submit" class="submit-button">Submit</button>
@@ -125,19 +192,16 @@
     </div>
 </div>
 
-<script src="event.js"></script> <!-- Link to external JS -->
-
 <div id="feedback-section">
     <h2>We value your feedback!</h2>
     <form id="feedback-form">
-        <label for="feedback">Please provide your feedback about this Website:</label>
         <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Enter your feedback here..." required></textarea><br><br>
         <button type="submit" class="feedback-submit-button">Submit Feedback</button>
     </form>
     <div id="feedback-response" style="display: none; margin-top: 10px; color: green;"></div>
 </div>
 
-
+<script src="event.js"></script> <!-- Link to external JS -->
 <!-- Footer -->
 <footer>
     <p>&copy; 2025 Hikemandu. All rights reserved.</p>
