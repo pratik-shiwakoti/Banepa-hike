@@ -85,7 +85,7 @@ window.onload = function () {
     });
 };
 // Set the event date 
-const eventDate = new Date("April 01, 2025 09:00:00").getTime();
+const eventDate = new Date("April 14, 2025 01:00:00").getTime();
 
 // Function to update the countdown
 function updateCountdown() {
@@ -185,7 +185,17 @@ const countdownInterval = setInterval(updateCountdown, 1000);
 function openFullscreen() {
     document.getElementById("fullscreenContainer").style.display = "flex";
 }
-
 function closeFullscreen() {
     document.getElementById("fullscreenContainer").style.display = "none";
 }
+
+function toggleMap() {
+    const mapSection = document.getElementById('mapSection');
+  
+    if (mapSection.style.display === 'none' || mapSection.style.display === '') {
+      mapSection.style.display = 'block';
+    } else {
+      mapSection.style.display = 'none';
+    }
+  }
+  
