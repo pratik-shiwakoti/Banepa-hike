@@ -17,42 +17,124 @@ window.onclick = function(event) {
     }
 };
 
+// Load existing data (phone numbers and emails) from localStorage (if any)
+function loadExistingData() {
+    let storedData = JSON.parse(localStorage.getItem("submittedData"));
+    if (!storedData) {
+        storedData = { phones: [], emails: [] };
+        localStorage.setItem("submittedData", JSON.stringify(storedData));
+    }
+    return storedData;
+}
+
+// Save the new phone number and email in localStorage
+function saveData(phone, email) {
+    let storedData = loadExistingData();
+    storedData.phones.push(phone);
+    storedData.emails.push(email);
+    localStorage.setItem("submittedData", JSON.stringify(storedData));
+}
+
+// Form submission handler
 document.getElementById("registerForm").onsubmit = function(event) {
-    var age = parseInt(document.getElementById("age").value);
-    var phone = document.getElementById("phoneNo").value;
+    event.preventDefault(); // Prevent the default form submission
 
-    // Validate age
-    if (age < 18) {
-        event.preventDefault();
-        alert("You must be at least 18 years old to register.");
-        return;
+    const name = document.getElementById("name").value;
+    const age = parseInt(document.getElementById("age").value);
+    const phone = document.getElementById("phoneNo").value;
+    const email = document.getElementById("email").value;
+
+    // Load existing data and check for duplicate phone number or email
+    const existingData = loadExistingData();
+
+    if (existingData.phones.includes(phone)) {
+        const editPhone = confirm("This phone number is already registered. Do you want to edit it?");
+        if (editPhone) {
+            document.getElementById("phoneNo").focus();
+            return; // Allow user to edit the phone number
+        } else {
+            alert("Please enter a different phone number.");
+            return; // Stop form submission if duplicate phone number found
+        }
     }
 
-    // Validate phone number
-    if (phone.length !== 10 || !/^\d+$/.test(phone)) {
-        event.preventDefault();
-        alert("Phone number must be exactly 10 digits and contain only numbers.");
-        return;
+    if (existingData.emails.includes(email)) {
+        const editEmail = confirm("This email address is already registered. Do you want to edit it?");
+        if (editEmail) {
+            document.getElementById("email").focus();
+            return; // Allow user to edit the email address
+        } else {
+            alert("Please enter a different email address.");
+            return; // Stop form submission if duplicate email found
+        }
     }
 
-    // Save data in local storage
-    let userData = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        age: age,
-        phone: phone,
-        address: document.getElementById("address").value,
-        medicalInfo: document.getElementById("medicalInfo").value
-    };
+    // If no duplicates, save the phone number and email, and submit the form data to the server
+    saveData(phone, email);
 
-    localStorage.setItem("registrationData", JSON.stringify(userData));
-    alert("Data saved successfully!");
+    const formData = new FormData();
+    formData.append("Name", name);
+    formData.append("Age", age);
+    formData.append("Gender", document.getElementById("gender").value);
+    formData.append("Address", document.getElementById("address").value);
+    formData.append("Phone", phone);
+    formData.append("Email", email);
+    formData.append("MedicalInfo", document.getElementById("medicalInfo").value);
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwKhynfddjImlra3N9hr4TX5L3afflkn9qMvoVD47JD6bw-5td_DLF38XRLGIp5i3Npzw/exec';
+
+    // Submit data to Google Apps Script Web App
+    fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())  // Expect JSON response from server
+    .then(result => {
+        if (result.status === 'success') {
+            alert("Registration successful!");
+            clearForm();
+        } else {
+            alert("Error: " + result.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error!", error);
+        alert("There was an error submitting the form.");
+    });
 };
-// Function to clear form fields
+
+// Function to clear the form
 function clearForm() {
     document.getElementById("registerForm").reset();
-    document.getElementById("medicalInfo").disabled = true;
 }
+
+// Google Apps Script doPost function
+function doPost(e) {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Registrations");
+
+    if (!sheet) {
+        return ContentService.createTextOutput(
+            JSON.stringify({ status: "error", message: "Sheet not found" })
+        ).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    sheet.appendRow([
+        e.parameter.Name,
+        e.parameter.Age,
+        e.parameter.Gender,
+        e.parameter.Address,
+        e.parameter.Phone,
+        e.parameter.Email,
+        e.parameter.MedicalInfo,
+        new Date()
+    ]);
+
+    return ContentService.createTextOutput(
+        JSON.stringify({ status: "success" })
+    ).setMimeType(ContentService.MimeType.JSON);
+}
+
+
 window.onload = function () {
     const feedbackForm = document.getElementById("feedback-form");
     const feedbackResponse = document.getElementById("feedback-response");
@@ -85,7 +167,7 @@ window.onload = function () {
     });
 };
 // Set the event date 
-const eventDate = new Date("April 14, 2025 01:00:00").getTime();
+const eventDate = new Date("April 19, 2025 00:00:00").getTime();
 
 // Function to update the countdown
 function updateCountdown() {
