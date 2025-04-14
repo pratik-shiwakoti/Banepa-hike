@@ -18,8 +18,8 @@
                     <li><a href="event.html">Events</a></li>
                     <li><a href="trails.html">Trails</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li class="contact-link"><a href="contact.html">Contact</a></li>
+                    <li class="about-link"><a href="about.html">About Us</a></li>
                     
                 </ul>
             </nav>
@@ -38,12 +38,12 @@
         <p class="event-description">Join us for an unforgettable adventure! Our next event is filled with exciting activities, great company, and stunning views. Don't miss out!</p>
         <p class="fun">Limited People, Unlimited Fun</p>
         <h2 class="event-title">Upcoming Event</h2>
-        <div class="new-year-banner">
-            <h1>🎆 <span class="year">New Year 2082 Special!!</span>  🎊</h1>
-          </div>
+        
         <p id="countdown" class="countdown-text"></p>
         <p class="event-info"> *Banepa - Chandeshwori Temple- Nange Dadha- Sanga/Nala Hike*</p>
-        <h1 class="new-year-title">Let's Explore 2082 With Hikemandu</h1>
+       <div class="new-year-banner">
+            <h1>Let's Explore 2082 With Hikemandu😊</h1>
+          </div>
         <button class="event-button" onclick="openPopup('learnMorePopup')">Learn More</button>
         <button class="register-button" onclick="openPopup('registerPopup')"id="registerBtn">Register Here</button>
     </div>
@@ -103,12 +103,13 @@
     <div class="popup-content learn-more-bg">
         <span class="close" onclick="closePopup('learnMorePopup')">&times;</span>
         <h2 style="color: blue; font-family: 'Times New Roman', Times, serif;">Event Details</h2>
-        <p style="color: wheat; font-size: 1.1rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Get ready for the most thrilling event of the year! We're hosting a special Hike with lots of exciting activities like hiking, group adventures.</p>
+        <p style="color: wheat; font-size: 1.1rem; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            Get ready for the most thrilling event of the year! We're hosting a special Hike with lots of exciting activities like hiking, group adventures.</p>
         <h3 style=" color: green; font-size: 1.3rem; font-family: 'Times New Roman', Times, serif;"><strong>Hike Info</strong></h3>
 <ul style="color: black; font-size: 1.07rem;">
         <li><strong>Route:</strong> Banepa - Chandeshwori temple - Raut Gaun - Nange dada - Sanga/Nala Hike</li>
          <li><strong>Distance:</strong> 12-14 km (Refrence: Google Maps)</li>
-        <li><strong>Date:</strong> 1 Baishak, 2082</li>
+        <li><strong>Date:</strong> 5 Baishak, 2082</li>
         <li><strong>Duration:</strong> 5-6 hours (Approx)</li>
         <li><strong>Difficulty:</strong> Easy-Moderate (Best for Beginners)</li>
         <li><strong>Altitude:</strong> 1400m-1900m (From sea Level)</li>
@@ -161,37 +162,55 @@
         <h2>Register Now</h2>
         <p>Secure your spot by registering today! Fill out the form and be part of this amazing adventure.</p>
         
-        <form id="registerForm" onsubmit="handleFormSubmit(event)">
-            <label>Required fields are marked with *</label>
-            
-            <input type="text" id="name" placeholder="* Enter your Full Name" required>
-            <input type="number" id="age" placeholder="* Enter your Age" required min="10" max="100">
+        <form id="registerForm">
+            <label>Required fields are marked with *</label><br>
+        
+            <!-- Full Name -->
+            <input type="text" id="name" placeholder="* Enter your Full Name" required><br>
+        
+            <!-- Age -->
+            <input type="number" id="age" placeholder="* Enter your Age" required min="10" max="100"><br>
+        
+            <!-- Gender -->
             <select id="gender" required>
                 <option value="" disabled selected>* Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
-            </select>
-            <input type="text" id="address" placeholder="* Enter your Current Address" required>
-            <input type="tel" id="phoneNo" placeholder="* Enter your Phone Number (10 digits)" pattern="[0-9]{10}" maxlength="10" required>
-            <input type="email" id="email" placeholder="Enter your Email Address" required>
+            </select><br>
         
+            <!-- Address -->
+            <input type="text" id="address" placeholder="* Enter your Current Address" required><br>
+        
+            <!-- Phone Number -->
+            <input type="tel" id="phoneNo" placeholder="* Enter your Phone Number (10 digits)" pattern="[0-9]{10}" maxlength="10" required><br>
+        
+            <!-- Email -->
+            <input type="email" id="email" placeholder="* Enter your Email Address" required><br>
+        
+            <!-- Medical Information -->
             <h3>Medical Information</h3>
-            <textarea id="medicalInfo" placeholder="List out any medical conditions or allergies (if any)"></textarea>
-            
+            <textarea id="medicalInfo" placeholder="List out any medical conditions or allergies (if any)"></textarea><br>
+        
+            <!-- Terms and Conditions -->
             <div class="terms">
                 <input type="checkbox" id="terms" required>
-                <label for="terms" style="display: inline-block; margin-left: 5px;">I agree to the <a href="termsandconditions.html" target="_blank">Terms and Conditions</a></label>
+                <label for="terms" style="display: inline-block; margin-left: 5px;">I agree to the <a href="termsandconditions.html" target="_blank">Terms and Conditions</a></label><br>
             </div>
-            <p> *Contact us if you are Joining our Adventure <br> Contact Number: 9813092717 </p>
+        
+            <!-- Contact Information -->
+            <p>* Contact us if you are joining our Adventure<br>Contact Number: 9813092717</p>
+        
+            <!-- Button Group -->
             <div class="button-group">
                 <button type="button" class="clear-button" onclick="clearForm()">Clear All</button>
                 <button type="submit" class="submit-button">Submit</button>
             </div>
         </form>
+         
     </div>
 </div>
-
+  
 <div id="feedback-section">
     <h2>We value your feedback!</h2>
     <form id="feedback-form">
