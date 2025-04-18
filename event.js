@@ -352,7 +352,7 @@ robotCheck.addEventListener("change", () => {
 });
 
 // Move the Putali button around when hovered
-chapetaBtn.addEventListener("mouseover", () => {
+function movePutali() {
   if (verified) return;
 
   const containerWidth = container.clientWidth - chapetaBtn.clientWidth;
@@ -363,7 +363,9 @@ chapetaBtn.addEventListener("mouseover", () => {
 
   chapetaBtn.style.left = `${randomX}px`;
   chapetaBtn.style.top = `${randomY}px`;
-});
+}
+chapetaBtn.addEventListener("mouseover", movePutali);     // For desktop
+chapetaBtn.addEventListener("touchstart", movePutali);     // For mobile
 
 // Verify user when Putali button is clicked with animation
 chapetaBtn.addEventListener("click", () => {
