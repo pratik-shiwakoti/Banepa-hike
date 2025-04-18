@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event - Hikemandu</title>
     <link rel="stylesheet" href="event.css"> <!-- Linking the CSS file -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
     <header>
@@ -15,7 +16,7 @@
             <nav class="navigation">
                 <ul>
                     <li><a href="hiking.html">Home</a></li>
-                    <li><a href="event.html">Events</a></li>
+                    <li class="event-link"><a href="event.html">Events</a></li>
                     <li><a href="trails.html">Trails</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                     <li class="contact-link"><a href="contact.html">Contact</a></li>
@@ -97,7 +98,6 @@
     });
 </script>
 
-
 <!-- Learn More Popup -->
 <div id="learnMorePopup" class="popup">
     <div class="popup-content learn-more-bg">
@@ -154,63 +154,90 @@
 <p style="color: wheat; font-style: italic; font-size: 1.1rem;"><strong>Note:</strong> "Tell someone your plans" – let someone know where you are going and when you expect to be back.</p>
     </div>
 </div>
-
+ 
 <!-- Register Popup -->
 <div id="registerPopup" class="popup">
     <div class="popup-content register-bg">
         <span class="close" onclick="closePopup('registerPopup')">&times;</span>
         <h2>Register Now</h2>
-        <p>Secure your spot by registering today! Fill out the form and be part of this amazing adventure.</p>
+        <p style="color: #ccff00;">Secure your spot by registering today! Fill out the form and be part of this amazing adventure.</p>
         
-        <form id="registerForm">
-            <label>Required fields are marked with *</label><br>
-        
-            <!-- Full Name -->
-            <input type="text" id="name" placeholder="* Enter your Full Name" required><br>
-        
-            <!-- Age -->
-            <input type="number" id="age" placeholder="* Enter your Age" required min="10" max="100"><br>
-        
-            <!-- Gender -->
-            <select id="gender" required>
-                <option value="" disabled selected>* Select Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select><br>
-        
-            <!-- Address -->
-            <input type="text" id="address" placeholder="* Enter your Current Address" required><br>
-        
-            <!-- Phone Number -->
-            <input type="tel" id="phoneNo" placeholder="* Enter your Phone Number (10 digits)" pattern="[0-9]{10}" maxlength="10" required><br>
-        
-            <!-- Email -->
-            <input type="email" id="email" placeholder="* Enter your Email Address" required><br>
-        
-            <!-- Medical Information -->
-            <h3>Medical Information</h3>
-            <textarea id="medicalInfo" placeholder="List out any medical conditions or allergies (if any)"></textarea><br>
-        
-            <!-- Terms and Conditions -->
-            <div class="terms">
-                <input type="checkbox" id="terms" required>
-                <label for="terms" style="display: inline-block; margin-left: 5px;">I agree to the <a href="termsandconditions.html" target="_blank">Terms and Conditions</a></label><br>
-            </div>
-        
-            <!-- Contact Information -->
-            <p>* Contact us if you are joining our Adventure<br>Contact Number: 9813092717</p>
-        
-            <!-- Button Group -->
-            <div class="button-group">
-                <button type="button" class="clear-button" onclick="clearForm()">Clear All</button>
-                <button type="submit" class="submit-button">Submit</button>
-            </div>
-        </form>
-         
+<form id="registrationForm">
+    <div id="registerForm">
+      <label style="font-size: 1rem;">Required fields are marked with *</label>
+
+      <div class="input-container">
+        <input type="text" id="name" placeholder=" " required>
+        <label for="name">* Enter your Full Name</label>
+      </div>
+
+      <div class="input-container">
+        <input type="number" id="age" placeholder=" " required min="10" max="60">
+        <label for="age">* Enter your Age</label>
+      </div>
+
+      <div class="input-container">
+        <select id="gender" required>
+          <option value="" disabled selected hidden></option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <label for="gender">* Select Gender</label>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="address" placeholder=" " required>
+        <label for="address">* Enter your Current Address</label>
+      </div>
+
+      <div class="input-container">
+        <input type="tel" id="phoneNo" pattern="[0-9]{10}" maxlength="10" placeholder=" " required>
+        <label for="phoneNo">* Enter your Phone Number</label>
+      </div>
+
+      <div class="input-container">
+        <input type="email" id="email" placeholder=" " required>
+        <label for="email">* Enter your Email Address</label>
+      </div>
+
+      <h3>Medical Information⚕️</h3>
+      <input type="text" id="medicalInfo" placeholder="Medical conditions or Allergies (if any)" maxlength="100">
+      <button type="button" class="clear-button" onclick="clearForm()">Clear All</button>
     </div>
+
+    <!-- Step 1: Checkbox to verify "I'm not a robot" -->
+<div id="robot-container">
+    <label class="robot-check">
+    <input type="checkbox" id="robot-check" required> I’m not a robot🤖
+    </label>
+  <!-- Step 2: Once checked, show the "Catch the Putali" game -->
+  <p id="chapeta-instruction" class="chapeta-instruction" style="display: none;">
+    Catch the "Putali🦋" to prove you're not Robot.</p>
+  </div>
+  <div id="chapeta-container" class="chapeta-container" style="display: none;">
+    <button id="chapeta-btn"title="Catch the Putali">Putali🦋</button>
+  </div>
+       
+      
+    <!-- Terms and Conditions -->
+    <h3 style="color: #ccff00;">Terms and Conditions</h3>
+    <div class="terms">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">I agree to the <a href="termsandconditions.html" target="_blank" style="color:#ff4d00;">Terms and Conditions</a></label>
+    </div>
+    <!-- Contact Information -->
+    <p>*Kindly Contact us if you are joining our Adventure<br>Contact Number: 9813092717</p>
+    <!-- Button Group -->
+    <div class="button-group">
+        
+        <button type="button" class="draft-button" onclick="saveDraft()">Save as Draft</button>
+        <button type="submit" class="submit-button">Submit</button>
+    </div>
+</form>
 </div>
-  
+</div>
+
 <div id="feedback-section">
     <h2>We value your feedback!</h2>
     <form id="feedback-form">
@@ -225,17 +252,25 @@
 <footer>
     <p>&copy; 2025 Hikemandu. All rights reserved.</p>
     <p>Follow us on:</p>
-    <div class="social-icons">
-        <a href="https://facebook.com/Pratik.Shiwakoti.10" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://instagram.com/parr_tik" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://twitter.com/Pratik_Cwakoti" target="_blank">
-            <i class="fab fa-twitter"></i>
-        </a>
-    </div>
+    <div class="socials-container">
+      <a href="https://www.linkedin.com/in/pratik-shiwakoti-b08432345/" target="_blank" class="linkedin" data-social="LinkedIn" aria-label="Visit our LinkedIn profile">
+          <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/pratik-shiwakoti" target="_blank" class="github" data-social="GitHub" aria-label="Visit our GitHub profile">
+          <i class="fab fa-github"></i>
+      </a>
+      <a href="https://twitter.com/Pratik_Cwakoti" target="_blank" class="twitter" data-social="Twitter" aria-label="Visit our Twitter profile">
+          <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://facebook.com/Pratik.Shiwakoti.10" target="_blank" class="facebook" data-social="Facebook" aria-label="Visit our Facebook page">
+          <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://instagram.com/parr_tik" target="_blank" class="instagram" data-social="Instagram" aria-label="Visit our Instagram profile">
+          <i class="fab fa-instagram"></i>
+      </a>
+  </div>
+  
+      
     <p class="marquee">Designed By: Pratik Shiwakoti</p>
 </footer>
 </body>
