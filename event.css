@@ -1,601 +1,101 @@
-/* Styles for the Upcoming Event Section */
-.upcoming-event-section {
-    background: linear-gradient(to right, rgba(255, 200, 0, 0.7), rgba(0, 150, 255, 0.7)), 
-                url('stick bg.jpg') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
-    padding: 8% 6%; /* Responsive padding using % */
-    color: white;
-    text-align: center;
-    border-radius: 0px;
-    position: relative;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    width: auto;
-    top: 0rem;
-    bottom: 5rem;
-}
 
-.upcoming-event-section::after {
-    content: "";
-    position: absolute;
-    top: 0rem;
-    left: 0;
-    right: 0;
-    bottom: 0rem;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
-    border-radius: 0px;
-    z-index: 0;
-    top: 0rem;
-    
-}
-
-.event-content {
-    position: relative;
-    z-index: 1;
-    top: 0 rem;
-    
-}
-
-.event-title {
-    font-size: 3rem; /* Responsive font size */
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 2%; /* Responsive margin */
-    margin-top: 0;
-    letter-spacing: 2px;
-    
-}
-
-.event-description {
-    font-size: 1.5rem; /* Responsive font size */
-    margin-bottom: 3%; /* Responsive margin */
-    font-weight: 300;
-    font-style: italic;
-    
-}
-
-.event-button {
-    background-color: #ff8c00; /* Bright button color */
-    color: white;
-    padding: 1.5rem 3rem; /* Relative padding */
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    width: fit-content;
-    height: 4rem;
-    cursor: pointer;
-}
-
-.event-button:hover {
-    background-color: #ff6600; /* Darker shade on hover */
-}
-
-.fun {
-    margin-top: auto;
-    margin-bottom: 1%; /* Relative margin */
-    letter-spacing: 2px;
-    padding-top: 1%;
-    padding-bottom: 1%;
-}
-
-.event-info {
-    font-size: 1.7rem; /* Responsive font size */
-    font-weight: 700;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-transform: inherit;
-    background: linear-gradient(45deg, #ff2f00, #ffae00, #00ff2f);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.register-button {
-    background-color: rgb(42, 205, 214);
-    color: white;
-    padding: 1.5rem 3rem; /* Relative padding */
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    width: fit-content;
-    height: 4rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.register-button:hover {
-    background-color: #088345 !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-}
-
-.submit-button {
-    background-color: #aef869; /* Bright button color */
-    color: black;
-    padding: 1rem 2rem; /* Relative padding */
-    text-decoration: none;
-    border-radius: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    width: fit-content;
-    height: fit-content;
-}
-
-.clear-button {
-    background-color: #f5a88a; /* Bright button color */
-    color: black;
-    padding: 1rem 2rem; /* Relative padding */
-    text-decoration: none;
-    border-radius: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    width: fit-content;
-    height: fit-content;
-}
-
-/* Popup Styles */
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
-    padding-top: 5%; /* Adjusted padding using % */
-    backdrop-filter: blur(5px);
-}
-
-.learn-more-bg {
-    background: linear-gradient(135deg, #f4a32b, #ef5d30);
-    color: white;
-    font-size: 1rem;
-    padding: 1rem 2rem;
-}
-.learn-more-bg:hover {
-    background: linear-gradient(135deg, #ef5d30, #f4a32b); /* Reverse gradient */
-}
-.register-bg {
-    background: linear-gradient(135deg, #838039, #e19f43);
-    color: white;
-}
-/* Hover Effect */
-.register-bg:hover {
-    background: linear-gradient(135deg, #e19f43, #838039); /* Reverse gradient */
-}
-.popup-content {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 70vh; /* Set a fixed height */
-    overflow-y: auto; /* Enable vertical scrolling */
-    scrollbar-width: none;
-    margin: auto;
-    padding: 2rem; /* Responsive padding */
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-    text-align: left;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    position: absolute;
-}
-
-.popup-content::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Edge */
-}
-
-.close {
-    color: red;
-    font-size: 2rem; /* Responsive font size */
-    font-weight: bold;
-    position: absolute;
-    cursor: pointer;
-    top: 10px;
-    right: 20px;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Fade In Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Form Styles */
-form input {
-    width: 90%;
-    max-width: 600px;
-    padding: 0.6rem;
-    margin: 5px auto;
-    border-radius: 50px;
-    border: 2px solid black;
-    background-color: #d9f9f7af;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-}
-
-form button:hover {
-    background:linear-gradient(45deg, #f28066, #efc15c, #6af784);
-}
-
-label {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-}
-
-input[type="radio"] {
-    margin-right: 10px;
-}
-
-/* Form Validation Styles */
-input:invalid,
-textarea:invalid {
-    border-color: rgb(244, 98, 98);
-}
-
-input:focus:invalid,
-textarea:focus:invalid {
-    border-color: #f44336;
-    outline: none;
-}
-
-/* Countdown Section Styles */
-.countdown-text {
-    font-size: 1.8rem; /* Responsive font size */
-    font-weight: bold;
-    color: white;
-    background: linear-gradient(to right, #ff0000e1, #3dcd24, #ffeb00); /* Gradient background */
-    padding: 1rem 2rem; /* Relative padding */
-    border-radius: 15px; /* Smooth rounded corners */
-    text-align: center;
-    width: fit-content;
-    margin: 0 auto; /* Center the countdown text */
-    cursor:grab;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow for better emphasis */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Stronger text shadow */
-    transition: transform 0.3s ease; /* Smooth hover effect */
-}
-
-.countdown-text:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
-}
-
-/* Media Query for Smaller Screens */
-@media (max-width: 650px) {
-    .event-title {
-        font-size: 2rem; /* Smaller font on mobile */
-    }
-
-    .event-description {
-        font-size: 1.1rem;
-    }
-
-    .event-button {
-        font-size: 0.9rem; /* Smaller font size */
-        padding: 0.8rem 1.5rem; /* Adjust padding */
-    }
-    #countdown {
-        font-size: 1.5rem; /* Slightly smaller font on mobile */
-        padding: 1rem 1.5rem; /* Adjusted padding for mobile responsiveness */
-    }
-
-    .countdown-text {
-        font-size: 1.3rem; /* Slightly smaller font on mobile */
-        padding: 0.8rem 1.5rem; /* Adjusted padding for mobile */
-    }
-}
-
-/* Footer Styling */
-footer {
-    height: auto;
-    background: linear-gradient(15deg, rgba(30, 46, 46, 0.6), rgba(212, 209, 203, 0.6), rgba(137, 233, 206, 0.6)); /* Soft green gradient */
-    padding: 2.5em 5vw; /* Relative padding with em and vw for responsiveness */
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: auto;
-    top:0 rem;
-}
-
-footer p {
-    margin: 0.5em 0; /* Adjusted margin using em for relative spacing */
-    font-size: 1rem; /* Base font size, can be adjusted for better responsiveness */
-    word-wrap: break-word;  /* Break long words */
-    overflow-wrap: break-word; /* Ensures compatibility */
-}
-
-footer a {
-    color: rgb(221, 175, 76);
-    text-decoration:line-through;
-    margin: 2 1em; /* Margin using em for responsive spacing */
-    font-size: 3rem; /* Base font size */
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Marquee Effect */
-.marquee {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scrollText 10s linear infinite alternate;
-    font-size: 100%; /* Slightly larger font for marquee text */
-}
-
-@keyframes scrollText {
-    0% { transform: translateX(50%); }
-    50% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* Social Media Icon Styles */
-footer .social-icons i {
-    font-size: 2rem; /* Responsive size for social media icons */
-    margin: 0 2vw; /* Margin with vw for responsiveness */
-    color: #555;
-    transition: color 0.3s ease;
-}
-
-footer .social-icons i:hover {
-    color: #1DA1F2; /* Twitter color */
-}
-
-/* Specific colors for each social media icon */
-footer .social-icons a:nth-child(1) i {
-    color: rgba(22, 22, 203, 0.841); /* Facebook blue */
-}
-
-footer .social-icons a:nth-child(2) i {
-    color: #E4405F; /* Instagram pink */
-}
-
-footer .social-icons a:nth-child(3) i {
-    color: #1DA1F2; /* Twitter blue */
-}
-
-/* Hover effects for each icon */
-footer .social-icons a:nth-child(1) i:hover {
-    color: #3b5998; /* Facebook stays blue on hover */
-}
-
-footer .social-icons a:nth-child(2) i:hover {
-    color: #E4405F; /* Instagram stays pink on hover */
-}
-
-footer .social-icons a:nth-child(3) i:hover {
-    color: #1DA1F2; /* Twitter stays blue on hover */
-}
-
-/* Media Query for smaller screens (Mobile Responsiveness) */
-@media screen and (max-width: 600px) {
-    footer {
-        padding: 1.5em 5%; /* Adjust padding for smaller screens */
-    }
-
-    footer p, footer a {
-        font-size: 0.9rem; /* Smaller font size on mobile */
-    }
-}
-
-    /* Add some basic styling for the feedback form */
-    #feedback-section {
-        width: auto;
-        margin: auto;
-        
-        padding: 5% 10%;  /* Relative padding */
-        border: 1px solid #ccc;
-        border-radius: 0px; /* Optional border-radius for more rounded corners */
-        background: linear-gradient(to right, rgba(255, 200, 0, 0.7), rgba(0, 150, 255, 0.7)); /* Light gradient */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        height: auto; /* Allow height to adjust based on content */
-        max-height: fit-content;
-        resize: vertical;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Align content at the top */
-        position: relative; /* Ensure positioning context for the pseudo-element */
-    }    
-
-    #feedback-response {
-        color: green;
-    }
-
-    .feedback-submit-button {
-        padding: 12px 20px;  /* Fixed padding for the button */
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .feedback-submit-button:hover {
-        background-color: #45a049;
-    }
-
-    /* Style for the feedback section header */
-    #feedback-section h2 {
-        margin-top: 0;
-       
-        text-align: center;
-        font-family: 'Arial', sans-serif;
-        color: #333232;
-        font-size: 2em;  /* Responsive font size */
-    }
-
-    /* Style the form elements */
-    label, textarea {
-        font-size: 1.2em; /* Relative font size */
-        font-family: 'Arial', sans-serif;
-    }
-
-    textarea {
-        width: 100%;
-        padding: 2.5%;  /* Relative padding */
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        font-size: 1em; /* Responsive font size */
-        height: 1.5vh;  /* Adjust this value to set a specific height */
-        resize: vertical;  /* Allow users to resize vertically if they wish */
-    }
-
-    
-/* Styles for Gender Selection */
-#gender {
-    width: 30%;
-    max-width: 30%;
-    padding: 2% 5%; /* Relative padding */
-    margin: 5px auto;
-    border-radius: 50px;
-    border: 1.5px solid rgb(239, 12, 12);
-    background: #d9f9f7af;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-}
-
-/* Styles for Medical Information Section */
-#medicalInfo {
-    background: #d9f9f7af;
-    color: black;
-    padding: 2% 5%; /* Relative padding */
-    font-size: 1rem;
-    font-family: 'Arial', sans-serif;
-    border-radius: 5px;
-    border: 1.6px solid rgb(239, 12, 12);
-    margin: 10px 0;
-    width: 80%;
-    max-width: 85%;
-    display: block;
-    resize: vertical;
-}
-
-/* Styles for Terms and Conditions Checkbox */
-.terms {
-    display: flex;
-    align-items: flex-start; /* Align to the start of the flex container */
-    margin: 2% 0; /* Relative margin */
-    padding: 2% 5%; /* Relative padding */
-    width: 60%;
-    max-width: 80%;
-    background: #d9f9f7af;
-    border-radius: 15px;
-}
-
-/* Styles for Checkbox Input */
-input[type="checkbox"] {
-    width: 5%; /* Relative width */
-    height: 10%;
-    margin: 2% 1%; /* Relative margin */
-    transition: transform 0.3s ease;
-}
-
-/* Styles for Terms and Conditions Label */
-.terms label {
-    color: rgb(246, 27, 27);
-    font-size: 1rem;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.5;
-    text-align: center;
-    margin-left: 2%; /* Reduced margin-left for better alignment */
-}
-
-/* Adjust the layout on smaller screens */
-@media (max-width: 650px) {
-    #gender,
-    #medicalInfo,
-    .terms {
-        width: 100%; /* Ensure full width on mobile */
-    }
-
-    .terms {
-        flex-direction: column; /* Stack checkbox and label vertically on mobile */
-    }
-}
 /* General Header Styles */
 header {
-    position:fixed;           /* Fixed position to stay at the top */
-    top:0;
+    position: fixed;
+   /* Fixed position to stay at the top */
+    top: 0;
     left: 0;
     right: 0;
-    width: 97%;               /* Full width */
-    display: flex;            /* Flexbox for layout */
-    flex-direction: row;      /* Horizontal layout */
-    justify-content: center;   /* Center the navigation and title */
-    align-items: center;       /* Align vertically */
-    background-color: #004d40; /* Dark background */
-    padding: 1.5vw;            /* Responsive padding */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    z-index: 1000;             /* Ensure header is on top of other content */
-    backdrop-filter: blur(5px); /* Blur effect for background */
+    width: 97%;
+   /* Full width */
+    display: flex;
+   /* Flexbox for layout */
+    flex-direction: row;
+   /* Horizontal layout */
+    justify-content: center;
+   /* Center the navigation and title */
+    align-items: center;
+   /* Align vertically */
+    background-color: #004d40;
+   /* Dark background */
+    padding: 1.5vw;
+   /* Responsive padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+   /* Shadow for depth */
+    z-index: 1000;
+   /* Ensure header is on top of other content */
+    backdrop-filter: blur(5px);
+   /* Blur effect for background */
     height: 5vw;
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+}
+header.shrink {
+  background-color: rgba(0, 77, 64, 0.4); 
+  backdrop-filter: blur(10px) saturate(150%);
+  
 }
 
 header .logo {
-    position: absolute;         /* Absolute positioning to move logo to the corner */
-    top: 1vw;                   /* Responsive space from the top */
-    right: 1.5vw;                 /* Responsive space from the right corner */
-    width: 12vw;                /* Responsive logo width */
-    max-width: 200px;           /* Set a max width to maintain balance */
-    height: 6vw;               /* Maintain aspect ratio */
+    position: absolute;
+   /* Absolute positioning to move logo to the corner */
+    top: 1vw;
+   /* Responsive space from the top */
+    right: 1.5vw;
+   /* Responsive space from the right corner */
+    width: 12vw;
+   /* Responsive logo width */
+    max-width: 200px;
+   /* Set a max width to maintain balance */
+    height: 6vw;
+   /* Maintain aspect ratio */
     cursor: pointer;
     border-radius: 1rem;
 }
-
 header .header-container {
-    display: flex;                /* Flexbox for title and nav */
-    flex-direction: column;       /* Stack title and nav vertically */
-    align-items: center;          /* Center items horizontally */
+    display: flex;
+   /* Flexbox for title and nav */
+    flex-direction: column;
+   /* Stack title and nav vertically */
+    align-items: center;
+   /* Center items horizontally */
 }
-
-
-
 header .navigation {
-    margin-top: 1vw;             /* Responsive spacing */
-    padding-left: 4vw;           /* Responsive padding */
-    
+    margin-top: 1vw;
+   /* Responsive spacing */
+    padding-left: 4vw;
+   /* Responsive padding */
 }
-
 header .navigation ul {
-    list-style: none;             /* Remove default list styling */
+    list-style: none;
+   /* Remove default list styling */
     padding: 0;
-    gap: 2vw; /* Add space between links */
-    display: flex;                /* Flexbox for horizontal navigation items */
+    gap: 2vw;
+   /* Add space between links */
+    display: flex;
+   /* Flexbox for horizontal navigation items */
 }
-
 header .navigation ul {
-    margin-right: 2vw;           /* Responsive space between menu items */
+    margin-right: 2vw;
+   /* Responsive space between menu items */
 }
-
 header .navigation ul li a {
-    text-decoration: none;        /* Remove underline */
-    color: white;                 /* White text for links */
-    font-size: clamp(1rem, 2vw, 1.5rem);           /* Responsive font size */
-    transition: color 0.3s;       /* Smooth transition on hover */
+    text-decoration: none;
+   /* Remove underline */
+    color: white;
+   /* White text for links */
+    font-size: clamp(1rem, 2vw, 1.5rem);
+   /* Responsive font size */
+    transition: color 0.3s;
+   /* Smooth transition on hover */
 }
-
 header .navigation ul li a:hover {
-    color: #58a6ff;               /* Change color on hover */
+    color: #58a6ff;
+   /* Change color on hover */
 }
 @media screen and (max-width: 768px) {
-    .about-link, .contact-link{
+    .about-link, .contact-link, .event-link {
         display: none;
-    }
+   }
 }
 /* Fullscreen Image Styling */
 .fullscreen-img {
@@ -611,55 +111,1140 @@ header .navigation ul li a:hover {
     justify-content: center;
     align-items: center;
     z-index: 999;
-    padding: 5vw; /* Relative padding for responsiveness */
+    padding: 5vw;
+   /* Relative padding for responsiveness */
 }
 /* Ensure the image is fully responsive */
 .fullscreen-img img {
-    max-width: 80vw; /* Scale relative to viewport */
-    max-height: 80vh; /* Prevent overflow */
+    max-width: 80vw;
+   /* Scale relative to viewport */
+    max-height: 80vh;
+   /* Prevent overflow */
     width: auto;
     height: auto;
     position: relative;
-    border-radius: 10px; /* Soft edges for better visuals */
-    z-index: 1000; /* Ensure image is above background */
+    border-radius: 10px;
+   /* Soft edges for better visuals */
+    z-index: 1000;
+   /* Ensure image is above background */
 }
-
 /* Close Button Styling */
 .close-btn {
     position: absolute;
-    top: 5vw;  /* Relative positioning */
-    right: 1vw; /* Responsive spacing */
-    font-size: 3vw; /* Responsive font size */
+    top: 5vw;
+   /* Relative positioning */
+    right: 1vw;
+   /* Responsive spacing */
+    font-size: 3vw;
+   /* Responsive font size */
     color: red;
     cursor: pointer;
-    z-index: 1000; /* Ensure it's always visible */
+    z-index: 1000;
+   /* Ensure it's always visible */
     background: white;
     border-radius: 50%;
-    padding: 0.1vw 0.9vw; /* Scales with screen size */
+    padding: 0.1vw 0.9vw;
+   /* Scales with screen size */
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+   /* Shadow for depth */
 }
 .close-btn:hover, .close-btn:focus {
-    color: #000; /* Change color on hover */
-    background-color: #87e281; /* Change color on hover */
+    color: #000;
+   /* Change color on hover */
+    background-color: #87e281;
+   /* Change color on hover */
     text-decoration: none;
     cursor: pointer;
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .fullscreen-img img {
         max-width: 90vw;
         max-height: 70vh;
-    }
-
+   }
     .close-btn {
         font-size: 5vw;
         top: 4vw;
         right: 5vw;
         padding: 1.2vw 1.8vw;
+   }
+}
+/* Countdown Section Styles */
+.countdown-text {
+    font-size: 1.8rem;
+   /* Responsive font size */
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to right, #ff0000e1, #3dcd24, #ffeb00);
+   /* Gradient background */
+    padding: 1rem 2rem;
+   /* Relative padding */
+    border-radius: 15px;
+   /* Smooth rounded corners */
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+   /* Center the countdown text */
+    cursor: grab;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+   /* Enhanced shadow for better emphasis */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+   /* Stronger text shadow */
+    transition: transform 0.3s ease;
+   /* Smooth hover effect */
+}
+.countdown-text:hover {
+    transform: scale(1.05);
+   /* Slight zoom effect on hover */
+}
+/* Media Query for Smaller Screens */
+@media (max-width: 650px) {
+    .event-title {
+        font-size: 2rem;
+       /* Smaller font on mobile */
+   }
+    .event-description {
+        font-size: 1.1rem;
+   }
+    .event-button {
+        font-size: 0.9rem;
+       /* Smaller font size */
+        padding: 0.8rem 1.5rem;
+       /* Adjust padding */
+   }
+    #countdown {
+        font-size: 1.5rem;
+       /* Slightly smaller font on mobile */
+        padding: 1rem 1.5rem;
+       /* Adjusted padding for mobile responsiveness */
+   }
+    .countdown-text {
+        font-size: 1.3rem;
+       /* Slightly smaller font on mobile */
+        padding: 0.8rem 1.5rem;
+       /* Adjusted padding for mobile */
+   }
+}
+/* Styles for the Upcoming Event Section */
+.upcoming-event-section {
+    background: linear-gradient(to right, rgba(255, 200, 0, 0.7), rgba(0, 150, 255, 0.7)), url('stick bg.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 8% 6%;
+   /* Responsive padding using % */
+    color: white;
+    text-align: center;
+    border-radius: 0px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: auto;
+    top: 0rem;
+    bottom: 5rem;
+}
+.upcoming-event-section::after {
+    content: "";
+    position: absolute;
+    top: 0rem;
+    left: 0;
+    right: 0;
+    bottom: 0rem;
+    background: rgba(0, 0, 0, 0.5);
+   /* Dark overlay for better text visibility */
+    border-radius: 0px;
+    z-index: 0;
+    top: 0rem;
+}
+.event-content {
+    position: relative;
+    z-index: 1;
+    top: 0 rem;
+}
+.event-title {
+    font-size: 3rem;
+   /* Responsive font size */
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 2%;
+   /* Responsive margin */
+    margin-top: 0;
+    letter-spacing: 2px;
+}
+.event-description {
+    font-size: 1.5rem;
+   /* Responsive font size */
+    margin-bottom: 3%;
+   /* Responsive margin */
+    font-weight: 300;
+    font-style: italic;
+}
+.event-button {
+  background: linear-gradient(to bottom, #ff9c1a, #ff7b00); /* Subtle gradient for depth */
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  width: fit-content;
+  height: 3.5rem;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #cc6600, 0 12px 20px rgba(0, 0, 0, 0.3); /* Deep shadow for realism */
+  position: relative;
+  border: none;
+  outline: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2); /* Soft text glow */
+  margin-bottom: 1%;
+  margin-top: 1%;
+  margin-right: 1%;
+  animation: glowPulseEvent 3s infinite ease-in-out;
+}
+
+.event-button:hover {
+  background: linear-gradient(to bottom, #ffb347, #ff6600); /* Brighter gradient on hover */
+}
+
+.event-button:active {
+  top: 4px;
+  box-shadow: 0 4px 0 #cc6600, 0 6px 10px rgba(0, 0, 0, 0.2); /* Pressed in effect */
+}
+@keyframes glowPulseEvent {
+  0% {
+    box-shadow: 0 8px 0 #cc6600, 0 12px 20px rgba(0, 0, 0, 0.3), 0 0 5px rgba(255, 140, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 0 #cc6600, 0 12px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 140, 0, 0.9);
+  }
+  100% {
+    box-shadow: 0 8px 0 #cc6600, 0 12px 20px rgba(0, 0, 0, 0.3), 0 0 5px rgba(255, 140, 0, 0.5);
+  }
+}
+
+.register-button {
+  background: linear-gradient(to bottom, #2cd9e0, #1ca3ab); /* Subtle gradient for realism */
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+  height: 3.5rem;
+  box-shadow: 0 8px 0 #15777d, 0 12px 20px rgba(0, 0, 0, 0.25); /* Deeper shadow for 3D effect */
+  margin-bottom: 1%;
+  margin-top: 2%;
+  margin-left: 1%;
+  border: none;
+  outline: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+.register-button:hover {
+  background: linear-gradient(to bottom, #36e6ee, #1d79aa); /* Light shift + greenish hue */
+  box-shadow: 0 8px 0 #0d7039, 0 14px 24px rgba(0, 0, 0, 0.3);
+}
+
+.register-button:active {
+  top: 4px;
+  box-shadow: 0 4px 0 #0d7039, 0 6px 10px rgba(0, 0, 0, 0.2); /* Pressed-in effect */
+}
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 8px 0 #15777d, 0 12px 20px rgba(0, 0, 0, 0.25), 0 0 5px rgba(44, 217, 224, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 0 #15777d, 0 12px 20px rgba(0, 0, 0, 0.25), 0 0 20px rgba(44, 217, 224, 0.8);
+  }
+  100% {
+    box-shadow: 0 8px 0 #15777d, 0 12px 20px rgba(0, 0, 0, 0.25), 0 0 5px rgba(44, 217, 224, 0.5);
+  }
+}
+
+.fun {
+    margin-top: auto;
+    margin-bottom: 1%;
+   /* Relative margin */
+    letter-spacing: 2px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.event-info {
+    font-size: 1.7rem;
+   /* Responsive font size */
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: inherit;
+    background: linear-gradient(45deg, #ff2f00, #ffae00, #00ff2f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-button,
+.clear-button,
+.draft-button {
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 6px rgba(0, 0, 0, 0.3);
+}
+.submit-button {
+    background:linear-gradient(135deg, #7eb85b, #76ad37);
+    color: rgb(31, 31, 31);
+    box-shadow: 0 6px #81db2d;
+}
+.clear-button {
+    background: linear-gradient(135deg, #589c39, #21833a);
+    color: #272727;
+    box-shadow: 0 6px #33b12c;
+    margin-bottom: 0.5rem;
+}
+.draft-button {
+    background: linear-gradient(135deg, #b6ac57, #a1ad2d);
+    color: #212121;
+    box-shadow: 0 6px #cacf32;
+  }
+/* ✨ Hover effect */
+.submit-button:hover,
+.clear-button:hover,
+.draft-button:hover {
+    filter: brightness(1.1);
+    transform: scale(1.03);
+}
+
+/* 👇 Pressed state */
+.submit-button:active,
+.clear-button:active,
+.draft-button:active {
+    box-shadow: 0 2px rgba(0, 0, 0, 0.4);
+    top: 4px;
+    transform: scale(0.98);
+}
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(10px); }
+  }
+  
+/* Popup Styles */
+.popup {
+    display: none;
+   /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+   /* Semi-transparent background */
+    padding-top: 5%;
+   /* Adjusted padding using % */
+    backdrop-filter: blur(5px);
+}
+.popup-content {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70vh;
+   /* Set a fixed height */
+    overflow-y: auto;
+   /* Enable vertical scrolling */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+    margin: auto;
+    padding: 2rem;
+   /* Responsive padding */
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: absolute;
+
+}
+.popup-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+.popup-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+  .popup-content::-webkit-scrollbar-thumb:hover {
+    background-color: #0097a7;
+}
+  @media (max-width: 500px) {
+    .popup-content {
+      width: 90%;
+      height: 80vh;
+      padding: 1rem;
+    }
+  }
+
+.learn-more-bg {
+    background: linear-gradient(to right,rgba(209, 194, 83, 0.7), rgba(210, 122, 14, 0.868)),
+     url('oleaf.png') no-repeat center center;
+    color: white;
+    font-size: 1rem;
+    
+}
+.register-bg {
+    background: linear-gradient(to right, rgba(48, 96, 41, 0.7), rgba(60, 119, 39, 0.7)),
+     url('gleaf.png') no-repeat center center;
+     color: white;
+}
+
+
+.close {
+    color: red;
+    font-size: 2rem;
+   /* Responsive font size */
+    font-weight: bold;
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    right: 20px;
+}
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+   }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+   }
+}
+
+:root {
+    --font-base: 1rem;
+    --font-small: 0.75rem;
+}
+
+/* General Form Styles */
+#registerForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2vw;
+    background-image: url();
+    
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for better separation */
+    font-family: 'Arial', sans-serif;
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+#registerForm h3 {
+    margin-bottom: 0.5rem;
+    color: black;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+}
+/* Input Container Styles */
+.input-container {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+/* Unified field styling for input, select, and textarea */
+.input-container input,
+.input-container select,
+.input-container textarea {
+    width: 90%;
+    padding: clamp(0.6rem, 2vw, 1rem) 0.75em;
+    font-size: var(--font-base);
+    border: 1.7px solid rgb(0, 0, 0);
+    border-radius: 0.5rem;
+    background: transparent; /* Use transparent background to match medical info & gender */
+    color: #000000; /* Unified text color */
+    backdrop-filter: blur(5px);
+    outline: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide placeholder text for floating label behavior */
+.input-container input::placeholder,
+.input-container select option[disabled],
+.input-container textarea::placeholder {
+    color: transparent;
+}
+
+/* Floating label default styling for input containers */
+.input-container label {
+    position: absolute;
+    top: 0.9em;
+    left: 0.45em;
+    padding: 0 0.3em;
+    color: #f4e285; /* Light color for label */
+    font-size: var(--font-base);
+    pointer-events: none;
+    transition: 0.2s ease all;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* 3D effect */
+    animation: labelPopIn 0.5s ease;
+}
+@keyframes labelPopIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Floating label effect when input is focused or not empty */
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label,
+.input-container select:focus + label,
+.input-container select:valid + label,
+.input-container textarea:focus + label,
+.input-container textarea:not(:placeholder-shown) + label {
+    top: -0.5rem;
+    left: 0.6rem;
+    font-size: var(--font-small); /* Fixed: use --font-small instead of undefined --angle */
+    color: #ffffff;
+    background: linear-gradient(90deg, #4f8c6a, #7c642f, #2d6738);
+    border-radius: 0.3rem;
+    padding: 0 0.4em;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Depth shadow */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Stronger 3D effect */
+    transform: translateY(-2px); /* Subtle lift */
+}
+
+/* Textarea specific styling */
+.input-container textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Global label defaults (if any label is outside of input-container) */
+label {
+    font-style: italic;
+    color: #1e1a1a;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Form Validation Styles */
+input:invalid, textarea:invalid {
+    border-color: rgb(0, 0, 0);
+}
+input:focus:invalid, textarea:focus:invalid {
+    border-color: #f73123;
+    outline: none;
+}
+
+/* Styles for Gender Selection (targeting the #gender select element) */
+#gender {
+    width: 40%;
+    max-width: 50%;
+    padding: 2% 5%; /* Relative padding */
+    border-radius: 5px;
+    border: 1.7px solid rgb(0, 0, 0);
+    background: transparent;
+}
+
+/* Apply focus invalid styles for gender, if needed */
+#gender:focus:invalid {
+    border-color: #f73123;
+    outline: none;
+}
+
+/* Medical Info (no floating label) */
+#medicalInfo {
+    background: transparent;
+    color: #000;
+    padding: 3% 5%;
+    border-radius: 5px;
+    border: 1.7px solid rgb(0, 0, 0);
+    width: 80%;
+    max-width: 85%;
+    font-size: var(--font-base);
+    display: block;
+    margin: 0.5rem 0 1.5rem;
+}
+
+/* Placeholder styling */
+#medicalInfo::placeholder {
+  color: #f4e285;
+
+}
+
+/* Focus + Invalid styles */
+#medicalInfo:focus:invalid {
+    border-color: #f73123;
+    outline: none;
+}
+
+/* ✅ Chapeta (Putali) Verification Section Styles */
+#robot-container {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    width: 90%;
+    max-width: 95%;
+    margin-top: 1rem;
+    padding: 2% 4%; /* Relative padding */
+    background: linear-gradient(135deg, #33613a82, #50b9445d);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    backdrop-filter: blur(3px);
+    border: 1.5px solid rgb(0, 0, 0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional soft shadow */
+  }
+.robot-check {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #e6d3b3;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0rem;  
+  }
+  
+  .chapeta-instruction {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #00ccff;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
+  }
+  
+  /* 🦋 Container holding the Putali */
+  .chapeta-container {
+    margin-top: 0rem;
+    position: relative;
+    height: 20vh;
+    border: 1.5px solid rgb(0, 0, 0);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    overflow: hidden;
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    max-width: 95%;
+    width: 90%;
+  }
+  
+  /* ✨ Floating Putali Animation */
+  @keyframes floatPutali {
+    0% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-10px);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+  }
+  
+/* 🦋 Putali Button */
+#chapeta-btn {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at center, #ffb88c, #af664c);
+    border: none;
+    padding: 0.7em 1.6em;
+    border-radius: 50% / 40%;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: bold;
+    cursor: pointer;
+    color: #000000;
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.3),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    animation: floatPutali 3s ease-in-out infinite;
+    z-index: 2;
+  }
+  
+  /* 🪽 3D Wings with gradient */
+  #chapeta-btn::before,
+  #chapeta-btn::after {
+    content: "-_-";
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 65px;
+    background: radial-gradient(circle at center, #f0e9a0, #cdd35d);
+    border-radius: 50% 60% 40% 50%;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: -1;
+    transition: transform 0.3s ease,filter 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  }
+  
+  /* Left wing */
+  #chapeta-btn::before {
+    left: -50px;
+    transform: translateY(-50%) rotate(-30deg);
+  }
+  
+  /* Right wing */
+  #chapeta-btn::after {
+    right: -50px;
+    transform: translateY(-50%) rotate(30deg);
+  }
+  
+  /* 🦋 Hover effect: flap wings slightly */
+  #chapeta-btn:hover::before {
+    transform: translateY(-50%) rotate(-45deg) scale(1.05);
+  }
+  #chapeta-btn:hover::after {
+    transform: translateY(-50%) rotate(45deg) scale(1.05);
+  }
+  
+  /* 🪁 Floating animation */
+  @keyframes floatPutali {
+    0%, 100% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-12px);
+    }
+  }
+  
+  /* 🐾 Catch animation */
+  @keyframes catchPutali {
+    0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.3) rotate(20deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(0) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  
+  #chapeta-btn.caught {
+    animation: catchPutali 0.8s forwards;
+  }
+  #chapeta-btn.verified {
+    animation: pulse 1s infinite;
+    background: #66bb6a !important;
+    box-shadow: 0 0 10px #66bb6a;
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 10px #66bb6a; }
+    50% { box-shadow: 0 0 20px #66bb6a; }
+    100% { box-shadow: 0 0 10px #66bb6a; }
+  }
+  
+  
+
+/* Styles for Terms and Conditions Checkbox */
+.terms{
+    display: flex;
+    align-items: center; /* Align checkbox and label in the center vertically */
+    margin: 2% 0; /* Relative margin */
+    padding: 2% 4%; /* Relative padding */
+    width: 80%;
+    max-width: 90%;
+    background: linear-gradient(135deg,#33613a82, #50b9445d );
+    border-radius: 15px;
+    border: 1.6px solid rgb(0, 0, 0);
+    backdrop-filter: blur(3px);
+}
+
+/* Styles for Checkbox Input */
+input[type="checkbox"] {
+    width: 1.5rem; /* Fixed size for larger screens */
+    height: 1.5rem; /* Fixed size for larger screens */
+    margin: 0 1%; /* Adjust margin for better spacing */
+    transition: transform 0.3s ease;
+    display: inline-block; /* Ensures it's in the same line */
+    vertical-align: middle; /* Aligns with text or other inline elements */
+}
+
+/* Optional: Add a hover or focus effect */
+input[type="checkbox"]:hover {
+    transform: scale(1.2); /* More subtle scale effect */
+}
+
+/* Styles for Terms and Conditions Label */
+.terms label {
+    color: rgb(236, 236, 236);
+    font-size: 1.2rem; /* Responsive font size */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+    text-align: left;
+    margin-left: 1%; /* Adjusted for better spacing */
+}
+
+/* Adjust the layout on smaller screens */
+@media (max-width: 650px) {
+    #gender, #medicalInfo, .terms {
+        width: 100%; /* Ensure full width on mobile */
+    }
+    .terms {
+        flex-direction: row; /* Keep checkbox and label on the same line on mobile */
+    }
+    .terms label {
+        font-size: 1rem; /* Smaller font size on mobile */
     }
 }
+
+/* For Large Screens (larger than 1024px) */
+@media (min-width: 1024px) {
+    .terms {
+        padding: 2% 6%; /* More padding on larger screens */
+        width: 70%; /* Make the form smaller on larger screens */
+    }
+    .terms input[type="checkbox"] {
+        width: 2rem; /* Slightly larger checkbox for large screens */
+        height: 2rem; /* Adjust height for better visibility */
+    }
+    .terms label {
+        font-size: 1.1rem; /* Increase font size on large screens */
+    }
+}
+
+/* Add some basic styling for the feedback form */
+#feedback-section {
+    width: auto;
+    margin: auto;
+    padding: 5% 10%;
+   /* Relative padding */
+    border: 1px solid #ccc;
+    border-radius: 0px;
+   /* Optional border-radius for more rounded corners */
+    background: linear-gradient(to right, rgba(255, 200, 0, 0.7), rgba(0, 150, 255, 0.7));
+   /* Light gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: auto;
+   /* Allow height to adjust based on content */
+    max-height: fit-content;
+    resize: vertical;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+   /* Align content at the top */
+    position: relative;
+   /* Ensure positioning context for the pseudo-element */
+}
+#feedback-response {
+    color: green;
+}
+.feedback-submit-button {
+  padding: 12px 20px;
+  background: linear-gradient(to bottom, #4CAF50, #3e8e41); /* Gradient for depth */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 6px 0 #2e7031, 0 10px 16px rgba(0, 0, 0, 0.2); /* 3D drop shadow */
+  transition: all 0.2s ease;
+  position: relative;
+  outline: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 0rem;
+}
+
+.feedback-submit-button:hover {
+  background: linear-gradient(to bottom, #5fd866, #2e8540); /* Lighter green on hover */
+  box-shadow: 0 8px 0 #276636, 0 12px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+.feedback-submit-button:active {
+  top: 3px;
+  box-shadow: 0 4px 0 #276636, 0 6px 10px rgba(0, 0, 0, 0.2); /* Pressed-in effect */
+}
+
+/* Style for the feedback section header */
+#feedback-section h2 {
+    margin-top: 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #333232;
+    font-size: 2em;
+   /* Responsive font size */
+}
+/* Style the form elements */
+label, textarea {
+    font-size: 1.2em;
+   /* Relative font size */
+    font-family: 'Arial', sans-serif;
+}
+textarea {
+    width: 90%;
+    padding: 2.5%;
+   /* Relative padding */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+   /* Responsive font size */
+    height: 1.5vh;
+   /* Adjust this value to set a specific height */
+    resize: vertical;
+   /* Allow users to resize vertically if they wish */
+   margin-bottom: 0%;
+    margin-top: 0%;
+}
+/* Footer Styling */
+footer {
+    height: auto;
+    background: linear-gradient(15deg, rgba(30, 46, 46, 0.6), rgba(212, 209, 203, 0.6), rgba(137, 233, 206, 0.6));
+   /* Soft green gradient */
+    padding: 2.5em 5vw;
+   /* Relative padding with em and vw for responsiveness */
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: auto;
+    top: 0 rem;
+}
+footer p {
+    margin: 0.5em 0;
+   /* Adjusted margin using em for relative spacing */
+    font-size: 1rem;
+   /* Base font size, can be adjusted for better responsiveness */
+    word-wrap: break-word;
+   /* Break long words */
+    overflow-wrap: break-word;
+   /* Ensures compatibility */
+}
+footer a {
+    color: transparent!important;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Marquee Effect */
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollText 10s linear infinite alternate;
+    font-size: 100%;
+   /* Slightly larger font for marquee text */
+}
+@keyframes scrollText {
+    0% {
+        transform: translateX(50%);
+   }
+    50% {
+        transform: translateX(0);
+   }
+    100% {
+        transform: translateX(-50%);
+   }
+}
+
+/* Social Media Icons */
+:root {
+    --accent-color: blue; /* default fallback */
+  }
+  
+  .socials-container {
+    display: flex;
+    gap: 2vw;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .socials-container a {
+    position: relative;
+    background-color: white;
+    padding: 1vw;
+    border-radius: 50%;
+    height: 10vw;
+    width: 10vw;
+    max-width: 70px;
+    max-height: 70px;
+    min-width: 50px;
+    min-height: 50px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+    color: inherit; /* Good for safety */
+  }
+  
+  /* Icon styles */
+  .socials-container a i {
+    font-size: min(4vw, 30px); /* Responsive with max limit */
+    transition: color 0.3s ease;
+    color: inherit; /* Ensure icons inherit color */
+    position: relative;
+  }
+  
+  /* Tooltip text */
+  .socials-container a::before {
+    content: attr(data-social);
+    position: absolute;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.4em 1em;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transform: translateY(-30px) rotate(25deg);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+    background-color: var(--accent-color);
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  /* Tooltip arrow */
+  .socials-container a::after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    transform: translateY(0) rotate(25deg);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  /* Show tooltip on hover */
+  .socials-container a:hover::before {
+    transform: translateY(-65px) rotate(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .socials-container a:hover::after {
+    transform: translateY(-42px) rotate(0);
+    opacity: 1;
+    visibility: visible;
+  }
+ 
+  /* Icon colors before hover */
+  .socials-container a.facebook i {
+    color: #1877F2;
+  }
+  .socials-container a.instagram i {
+    color: #E1306C;
+  }
+  .socials-container a.twitter i {
+    color: #1DA1F2;
+  }
+  .socials-container a.github i {
+    color: #333333;
+  }
+  .socials-container a.linkedin i {
+    color: #0A66C2;
+  }
+  
+  /* Tooltip triangle color match */
+  .socials-container a.facebook::after {
+    border-top: 10px solid #1877F2;
+  }
+  .socials-container a.instagram::after {
+    border-top: 10px solid #E1306C;
+  }
+  .socials-container a.twitter::after {
+    border-top: 10px solid #1DA1F2;
+  }
+  .socials-container a.github::after {
+    border-top: 10px solid #333333;
+  }
+  .socials-container a.linkedin::after {
+    border-top: 10px solid #0A66C2;
+  }
+  
+  /* Hover background */
+  .socials-container a.facebook:hover {
+    background-color: #1877F2;
+  }
+  .socials-container a.instagram:hover {
+    background-color: #E1306C;
+  }
+  .socials-container a.twitter:hover {
+    background-color: #1DA1F2;
+  }
+  .socials-container a.github:hover {
+    background-color: #333333;
+  }
+  .socials-container a.linkedin:hover {
+    background-color: #0A66C2;
+  }
+  
+  /* Icon color on hover */
+  .socials-container a:hover i {
+    color: white;
+  }
+  
+  /* Tooltip background color override per platform */
+  .socials-container a.facebook::before {
+    background-color: #1877F2;
+  }
+  .socials-container a.instagram::before {
+    background-color: #E1306C;
+  }
+  .socials-container a.twitter::before {
+    background-color: #1DA1F2;
+  }
+  .socials-container a.github::before {
+    background-color: #333333;
+  }
+  .socials-container a.linkedin::before {
+    background-color: #0A66C2;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .socials-container a {
+      height: 10vw;
+      width: 10vw;
+      padding: 2vw;
+    }
+  
+    .socials-container a i {
+      font-size: 6vw;
+    }
+  
+    .socials-container a::before {
+      font-size: 1rem;
+    }
+  }
+  
 
 .map-toggle-container {
     display: flex;
@@ -669,21 +1254,18 @@ header .navigation ul li a:hover {
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
-  }
-  
-  .map-toggle-container p {
+}
+.map-toggle-container p {
     margin: 0;
     line-height: 1.4;
     display: inline;
-  }
-  
-  .map-toggle-container a {
+}
+.map-toggle-container a {
     margin-left: 0.3rem;
     color: #4b0082;
     text-decoration: underline;
-  }
-  
-  .toggle-map-btn {
+}
+.toggle-map-btn {
     padding: 0.4rem 1rem;
     font-size: 0.9rem;
     background-color: #aa88ef;
@@ -693,38 +1275,36 @@ header .navigation ul li a:hover {
     cursor: pointer;
     transition: background-color 0.3s;
     white-space: nowrap;
-  }
-  
-  .toggle-map-btn:hover {
+}
+.toggle-map-btn:hover {
     background-color: #139686;
-  }
-
-  .new-year-banner {
+}
+.new-year-banner {
     margin: 0 auto;
-    padding: 2em ;
+    padding: 2em;
     width: 100%;
     max-width: 600px;
     background: #1c1f2b;
     text-align: center;
     border-radius: 10px;
     position: relative;
-    padding: 0.5rem 0.6rem;
+    padding: 0.5rem 0.3rem;
+    
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     margin: 2rem auto;
     height: 100%;
-  }
-@property --angle{
+}
+@property --angle {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
-  }
-  
-  .new-year-banner::after, .new-year-banner::before{
+}
+.new-year-banner::after, .new-year-banner::before {
     content: '';
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095,white, #ff4545);
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, white, #ff4545);
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -732,29 +1312,29 @@ header .navigation ul li a:hover {
     padding: 5px;
     border-radius: 10px;
     animation: 4s spin linear infinite;
-  }
-  .new-year-banner::before{
+}
+.new-year-banner::before {
     filter: blur(1.5rem);
     opacity: 0.5;
-  }
-  @keyframes spin{
-    from{
-      --angle: 0deg;
-    }
-    to{
-      --angle: 360deg;
-    }
-  }
-  .new-year-banner h1 {
+}
+@keyframes spin {
+    from {
+        --angle: 0deg;
+   }
+    to {
+        --angle: 360deg;
+   }
+}
+.new-year-banner h1 {
     font-size: 2rem;
     font-weight: bold;
     color: #fff;
     text-shadow: 1px 1px 2px #000;
-  }
-
+}
 .site-title {
     position: absolute;
-    font-size: clamp(1.2rem, 4vw, 3rem); /* Responsive font size */
+    font-size: clamp(1.2rem, 4vw, 3rem);
+   /* Responsive font size */
     font-family: 'Arial', sans-serif;
     font-weight: bold;
     color: #fff;
@@ -762,15 +1342,21 @@ header .navigation ul li a:hover {
     left: 1vw;
     text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
     padding: 1rem;
-    background: linear-gradient(90deg,white, #00ffe7, #ff7300, white, #ffe600, #ff0099,whitesmoke);
+    background: linear-gradient(90deg, white, #00ffe7, #ff7300, white, #ffe600, #ff0099, whitesmoke);
     background-size: 300% 300%;
-    -webkit-background-clip:text;
+    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 5s linear infinite;
 }
-
 @keyframes shimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+   }
+    50% {
+        background-position: 100% 50%;
+   }
+    100% {
+        background-position: 0% 50%;
+   }
 }
