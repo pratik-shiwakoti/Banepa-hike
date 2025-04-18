@@ -26,7 +26,8 @@ header {
    /* Ensure header is on top of other content */
     backdrop-filter: blur(5px);
    /* Blur effect for background */
-    height: 5vw;
+    max-height: 5vw;
+    min-height: 7vh;
     transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
 }
 header.shrink {
