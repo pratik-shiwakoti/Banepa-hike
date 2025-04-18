@@ -431,7 +431,7 @@ document.querySelectorAll("input, textarea, select").forEach(el => {
     draftTimer = setTimeout(() => {
       saveDraft(); // Save draft
       showToast("Draft auto saved!"); // Show toast
-    }, 10000); // 10 seconds
+    }, 20000); // 20 seconds
   });
 });
 
