@@ -366,7 +366,7 @@ header .navigation ul li a:hover {
 }
 
 .fun {
-    margin-top: auto;
+    margin-top: 5vh;
     margin-bottom: 1%;
    /* Relative margin */
     letter-spacing: 2px;
