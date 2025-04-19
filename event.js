@@ -206,103 +206,94 @@ window.onload = function () {
   
   
 
-// Set the event date 
-const eventDate = new Date("April 19, 2025 00:00:00").getTime();
+// Set the event date using UTC for timezone consistency
+const eventDate = new Date("2025-04-21T00:00:00Z").getTime();
+
+// Function to disable the register button
+function disableRegisterButton() {
+    const registerButton = document.querySelector(".register-button");
+    if (registerButton) {
+        registerButton.disabled = true;
+        registerButton.textContent = "Registration Closed";
+        registerButton.style.backgroundColor = "#555";
+        registerButton.style.cursor = "not-allowed";
+        
+    }
+}
+
+// Function to show UI when event has started
+function showEventStartedUI() {
+    const countdownElement = document.getElementById("countdown");
+    const eventTitle = document.querySelector(".event-title");
+
+    if (countdownElement) {
+        countdownElement.textContent = "Time up !!!";
+        countdownElement.style.cursor = "pointer";
+        countdownElement.setAttribute("title", "New Event Coming Soon😊");
+    }
+
+    if (eventTitle) {
+        eventTitle.textContent = "Event has started!";
+        eventTitle.style.color = "red";
+    }
+
+    disableRegisterButton();
+}
 
 // Function to update the countdown
 function updateCountdown() {
     const now = new Date().getTime();
     const distance = eventDate - now;
 
-    // Get countdown element, event title, and register button
     const countdownElement = document.getElementById("countdown");
     const eventTitle = document.querySelector(".event-title");
     const registerButton = document.querySelector(".register-button");
 
     if (distance > 0) {
-        // Time calculations for days, hours, minutes, and seconds
+        // Calculate time left
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Update countdown display
+        // Display countdown
         countdownElement.textContent = `${days}d: ${hours}h: ${minutes}m: ${seconds}s`;
 
-        // Store event status as "upcoming" in localStorage
+        // Store status
         localStorage.setItem("eventStatus", "upcoming");
 
-        // Enable the register button before the event starts
+        // Enable register button
         if (registerButton) {
             registerButton.disabled = false;
             registerButton.textContent = "Register Here";
-            registerButton.style.backgroundColor = "#28a745"; // Green for active state
+            registerButton.style.backgroundColor = "#28a745"; // Green
             registerButton.style.cursor = "pointer";
             registerButton.style.pointerEvents = "auto";
         }
     } else {
-        // Event has started
+        // Time's up — stop timer, update UI
         clearInterval(countdownInterval);
-
-        // Change countdown to "00d: 00h: 00m: 00s" and add hover text
-        countdownElement.textContent = "Time up !!!";
-        countdownElement.style.cursor = "pointer";
-        countdownElement.setAttribute("title", "New Event Coming Soon😊");
-
-        // Change event title to "Event has started!"
-        eventTitle.textContent = "Event has started!";
-        eventTitle.style.color = "red";
-
-        // Store event status as "started" in localStorage
         localStorage.setItem("eventStatus", "started");
-
-        // Disable the register button after event starts
-        if (registerButton) {
-            registerButton.disabled = true;
-            registerButton.textContent = "Registration Closed";
-            registerButton.style.backgroundColor = "#555"; // Darker color to indicate disabled
-            registerButton.style.cursor = "not-allowed";
-            registerButton.style.pointerEvents = "none";
-        }
+        showEventStartedUI();
     }
 }
 
-// Function to check event status on page load
+// Function to check status on page load
 function checkEventStatus() {
     const eventStatus = localStorage.getItem("eventStatus");
-    const countdownElement = document.getElementById("countdown");
-    const eventTitle = document.querySelector(".event-title");
-    const registerButton = document.querySelector(".register-button");
-
     if (eventStatus === "started") {
-        // If the event has already started, show "00d: 00h: 00m: 00s"
-        countdownElement.textContent = "00d: 00h: 00m: 00s";
-        countdownElement.style.cursor = "pointer";
-        countdownElement.setAttribute("title", "Better Luck Next Time");
-
-        // Change event title to "Event has started!"
-        eventTitle.textContent = "Event has started!";
-        eventTitle.style.color = "red";
-
-        // Disable the register button
-        if (registerButton) {
-            registerButton.disabled = true;
-            registerButton.textContent = "Registration Closed";
-            registerButton.style.backgroundColor = "#555";
-            registerButton.style.cursor = "not-allowed";
-            registerButton.style.pointerEvents = "none";
-        }
+        showEventStartedUI();
     } else {
-        // Otherwise, start the countdown and enable registration
         updateCountdown();
     }
 }
 
-// Run checkEventStatus immediately on page load
+// Initial run
 checkEventStatus();
 
-// Update countdown every second
+// Update every second
 const countdownInterval = setInterval(updateCountdown, 1000);
+
 
 function openFullscreen() {
     document.getElementById("fullscreenContainer").style.display = "flex";
@@ -320,7 +311,7 @@ function toggleMap() {
       mapSection.style.display = 'none';
     }
   }
-//putali game
+
 // 🦋 Catch the Putali Game
 const robotCheck = document.getElementById("robot-check");
 const chapetaInstruction = document.getElementById("chapeta-instruction");
@@ -431,7 +422,7 @@ document.querySelectorAll("input, textarea, select").forEach(el => {
     draftTimer = setTimeout(() => {
       saveDraft(); // Save draft
       showToast("Draft auto saved!"); // Show toast
-    }, 20000); // 20 seconds
+    }, 20000); // 10 seconds
   });
 });
 
