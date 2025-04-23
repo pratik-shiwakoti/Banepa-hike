@@ -207,7 +207,7 @@ window.onload = function () {
   
 
 // Set the event date using UTC for timezone consistency
-const eventDate = new Date("2025-04-21T00:00:00Z").getTime();
+const eventDate = new Date("2025-05-21T00:00:00Z").getTime();
 
 // Function to disable the register button
 function disableRegisterButton() {
